@@ -1,4 +1,11 @@
+#!/usr/bin/python3
+"""
+0-pascal_triangle
+"""
+
+
 def pascal_triangle(n):
+    """returns a list of numbers that forms triangle """
     if n <= 0:
         return []
 
