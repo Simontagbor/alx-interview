@@ -23,13 +23,16 @@ def minOperations(n):
     if n < 1:
         return 0
 
-    dp = [0] * (n + 1)
+    operations = 0
+    d = 2
 
-    for i in range(2, n + 1):
-        dp[i] = i
+    while d * d <= n:
+        while (n % d) == 0:
+            n //= d
+            operations += d
+        d += 1
 
-        for j in range(2, i):
-            if i % j == 0:
-                dp[i] = min(dp[i], dp[j] + i // j)
+    if n > 1:
+        operations += n
 
-    return dp[n]
+    return operations
