@@ -30,7 +30,7 @@ def parse_line(lines):
 
 
 def print_stat(stats):
-    print(f"Filesize: {stats[0]}")
+    print(f"File size: {stats[0]}")
     for key, value in stats[1].items():
         print(f"{key}: {value}")
 
