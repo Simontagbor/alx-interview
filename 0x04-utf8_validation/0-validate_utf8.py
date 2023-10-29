@@ -18,7 +18,7 @@ def validUTF8(data):
         byte_bin = format(byte, '08b')
 
         if bytes_left == 0:
-            if byte_bin.startswith('0'):
+            if byte_bin[0] == '0':
                 bytes_left = 0
             elif byte_bin.startswith('110'):
                 bytes_left = 1
