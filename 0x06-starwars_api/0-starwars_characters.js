@@ -64,4 +64,3 @@ const printCharacterNames = (movieId) => {
 };
 
 printCharacterNames(movieId);
-
