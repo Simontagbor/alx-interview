@@ -46,7 +46,7 @@ const printCharacterNames = (movieId) => {
 
     const printNextCharacterName = () => {
       if (currentIndex >= characterUrls.length) {
-        return; 
+        return;
       }
 
       fetchCharacterData(characterUrls[currentIndex], (characterError, characterData) => {
@@ -55,11 +55,11 @@ const printCharacterNames = (movieId) => {
         }
         console.log(characterData.name);
         currentIndex++;
-        printNextCharacterName(); 
+        printNextCharacterName();
       });
     };
 
-    printNextCharacterName(); 
+    printNextCharacterName();
   });
 };
 
