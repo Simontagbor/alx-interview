@@ -58,9 +58,9 @@ const printCharacterNames = (movieId) => {
         printNextCharacterName();
       });
     };
-
     printNextCharacterName();
   });
 };
 
 printCharacterNames(movieId);
+
