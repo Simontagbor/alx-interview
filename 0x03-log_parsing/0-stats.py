@@ -14,7 +14,7 @@ count = 0
 
 try:
     for line in sys.stdin:
-        match = re.search(r'GET /projects/260 HTTP/1.1" (\d+) (\d+)', line)
+        match = re.search(r'(\d+) (\d+)$', line)
         if match:
             status_code = int(match.group(1))
             file_size = int(match.group(2))
