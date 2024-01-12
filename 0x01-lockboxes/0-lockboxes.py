@@ -5,17 +5,15 @@ Module for checking if all boxex can be opened
 
 
 def canUnlockAll(boxes):
-    """determines if all the boxes can be opened"""
-    AllUnlockable = False
-    next_box_idx = 1
-    for box in boxes:
-        if box == [] and next_box_idx != len(boxes):
-            AllUnlockable = False
-        elif box == [] and next_box_idx == len(boxes):
-            AllUnlockable = True
-        else:
-            for key in box:
-                if key == next_box_idx:
-                    AllUnlockable = True
-        next_box_idx += 1
-    return AllUnlockable
+    n = len(boxes)
+    opened_boxes = [False] * n
+    opened_boxes[0] = True
+    keys = [key for key in boxes[0]]
+
+    while keys:
+        key = keys.pop()
+        if key < n and not opened_boxes[key]:
+            opened_boxes[key] = True
+            keys.extend(boxes[key])
+
+    return all(opened_boxes)
