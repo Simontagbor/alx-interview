@@ -18,7 +18,7 @@ elif int(sys.argv[1]) < 4:
     sys.exit(1)
 else:
     N = int(sys.argv[1])
-    # print every possible solution
+
     for i in range(1, N-1):
         solution = []
         for j in range(0, N):
