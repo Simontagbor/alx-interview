@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """N Queens puzzle
-The N queens puzzle is the challenge of
+The N queens puzzle is the fun challenge of
 placing N non-attacking queens on an
 N×N chessboard.
 """
