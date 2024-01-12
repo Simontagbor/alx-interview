@@ -34,35 +34,23 @@ def isWinner(x, nums):
     """
     maria_wins = 0
     ben_wins = 0
-
-    maria_prime_list = []
-    ben_prime_list = []
-
-    for index in range(x):
-        number_pool = [i for i in range(1, nums[index] + 1)]
-        prime_pool = [num for num in number_pool if is_prime(num)]
-        last_player = None
-
+    for num in nums:
+        prime_pool = [i for i in range(2, num + 1) if all(i % j != 0 for j in range(2, i))]
+        last_player = ""
+        ben_prime = None
         while prime_pool:
-            # Maria's turn
-            if prime_pool:
-                maria_prime = min(prime_pool)
-                prime_pool = [num for num in prime_pool
-                              if num % maria_prime != 0]
-                last_player = "Maria"
-
-            # Ben's turn
-            if prime_pool:
-                ben_prime = min(prime_pool)
-                prime_pool = [num for num in prime_pool
-                              if num % ben_prime != 0]
-                last_player = "Ben"
-
             if last_player == "Maria":
-                maria_wins += 1
-            elif last_player == "Ben":
-                ben_wins += 1
-
+                ben_prime = max(prime_pool)
+                last_player = "Ben"
+            else:
+                maria_prime = min(prime_pool)
+                last_player = "Maria"
+            if ben_prime is not None:
+                prime_pool = [num for num in prime_pool if num % ben_prime != 0]
+        if last_player == "Maria":
+            maria_wins += 1
+        elif last_player == "Ben":
+            ben_wins += 1
     if maria_wins > ben_wins:
         return "Maria"
     elif ben_wins > maria_wins:
