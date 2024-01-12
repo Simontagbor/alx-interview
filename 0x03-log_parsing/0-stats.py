@@ -27,6 +27,11 @@ try:
             for code in sorted(status_codes):
                 if status_codes[code] > 0:
                     print("{}: {}".format(code, status_codes[code]))
+    # Print the statistics one last time after all lines have been read
+    print("File size: {}".format(total_size))
+    for code in sorted(status_codes):
+        if status_codes[code] > 0:
+            print("{}: {}".format(code, status_codes[code]))
 except KeyboardInterrupt:
     print("File size: {}".format(total_size))
     for code in sorted(status_codes):
